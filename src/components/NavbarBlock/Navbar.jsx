@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes, FaHome, FaUser, FaProjectDiagram } from 'react-icons/fa';
-import logo from '../assets/images/logo.jpeg';
+import logo from '../../assets/images/logo.jpeg';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,24 +17,24 @@ const Navbar = () => {
 
         <div className="flex items-center justify-between h-16">
 
-          {/* LOGO SECTION */}
-          <div className="flex items-center space-x-2">
+          {/* Updated Logo Section */}
+          <Link to="/" className="flex items-center space-x-3">
             <img className="h-10 w-10 sm:h-8 sm:w-8" src={logo} alt="Logo" />
-            <span className="text-2xl sm:text-xl font-bold text-black-600 font-poppins">ZM Design</span>
-          </div>
+            <span className="text-2xl sm:text-xl font-bold text-black-600">ZM Design</span>
+          </Link>
 
           {/* DESKTOP VIEW */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-center space-x-8">
-              <a href="#" className="nav-link text-black hover:text-black-600 transition-colors text-lg font-medium flex items-center gap-4">
+              <Link to="/" className="nav-link text-black hover:text-black-600 transition-colors text-lg font-medium flex items-center gap-4">
                 <FaHome className="text-xl" /> Home
-              </a>
-              <a href="#" className="nav-link text-black hover:text-black-600 transition-colors text-lg font-medium flex items-center gap-4">
+              </Link>
+              <Link to="/about" className="nav-link text-black hover:text-black-600 transition-colors text-lg font-medium flex items-center gap-4">
                 <FaUser className="text-xl" /> About
-              </a>
-              <a href="#" className="nav-link text-black hover:text-black-600 transition-colors text-lg font-medium flex items-center gap-4">
+              </Link>
+              <Link to="/projects" className="nav-link text-black hover:text-black-600 transition-colors text-lg font-medium flex items-center gap-4">
                 <FaProjectDiagram className="text-xl" /> Projects
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -52,15 +53,15 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col items-center">
-              <a href="#" className="nav-link text-black hover:text-black-600 transition-colors py-2 text-lg font-medium w-32 text-center flex items-center justify-center gap-2">
+              <Link to="/" className="nav-link text-black hover:text-black-600 transition-colors py-2 text-lg font-medium w-32 text-center flex items-center justify-center gap-2">
                 <FaHome /> Home
-              </a>
-              <a href="#" className="nav-link text-black hover:text-black-600 transition-colors py-2 text-lg font-medium w-32 text-center flex items-center justify-center gap-2">
+              </Link>
+              <Link to="/about" className="nav-link text-black hover:text-black-600 transition-colors py-2 text-lg font-medium w-32 text-center flex items-center justify-center gap-2">
                 <FaUser /> About
-              </a>
-              <a href="#" className="nav-link text-black hover:text-black-600 transition-colors py-2 text-lg font-medium w-32 text-center flex items-center justify-center gap-2">
+              </Link>
+              <Link to="/projects" className="nav-link text-black hover:text-black-600 transition-colors py-2 text-lg font-medium w-32 text-center flex items-center justify-center gap-2">
                 <FaProjectDiagram /> Projects
-              </a>
+              </Link>
             </div>
           </div>
         )}

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import '../index.css'
 import React from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/NavbarBlock/Navbar'
 
 const Home = () => {
   return (
