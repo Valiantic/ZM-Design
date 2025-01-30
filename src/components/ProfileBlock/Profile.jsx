@@ -28,8 +28,10 @@ const Profile = () => {
         {/* Text Content - Left Side */}
         <div className="w-full text-white md:w-1/2 order-1 md:order-none mt-8 md:mt-0 text-center md:text-left">
           <h1 className='text-2xl sm:text-xl md:text-4xl'>
-            Hi There! <span style={waveAnimation}>👋</span>
-            <span className="whitespace-nowrap">I'm <span className='text-amber-200 text-bold'>Zjer Owric Manalo</span></span>
+            Hi There! 
+            {/* ANIMATION HAND REMOVED */}
+            <span style={waveAnimation}></span>
+            <span className="whitespace-nowrap">I'm <span className='text-amber-200 text-bold font-bold'>Zjer Owric Manalo</span></span>
           </h1>
           <TypingText />
         </div>
@@ -38,7 +40,7 @@ const Profile = () => {
         <div className="mt-8 md:mt-0 order-0 md:order-none">
           <img 
             src={Avatar} 
-            className="rounded-full object-cover w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80"
+            className="rounded-full object-cover w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 brightness-80"
             alt="Profile"
           />
         </div>

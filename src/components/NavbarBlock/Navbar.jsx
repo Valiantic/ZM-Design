@@ -28,10 +28,10 @@ const Navbar = () => {
               <Link to="/" className="nav-link text-black hover:text-black-600 transition-colors text-lg font-medium flex items-center gap-4">
                 <FaHome className="text-xl" /> Home
               </Link>
-              <Link to="/about" className="nav-link text-black hover:text-black-600 transition-colors text-lg font-medium flex items-center gap-4">
+              <Link to="/projects" className="nav-link text-black hover:text-black-600 transition-colors text-lg font-medium flex items-center gap-4">
                 <FaProjectDiagram className="text-xl" /> Projects
               </Link>
-              <Link to="/projects" className="nav-link text-black hover:text-black-600 transition-colors text-lg font-medium flex items-center gap-4">
+              <Link to="/contacts" className="nav-link text-black hover:text-black-600 transition-colors text-lg font-medium flex items-center gap-4">
                 <MdPhone className="text-xl" /> Contacts
               </Link>
             </div>
@@ -55,11 +55,11 @@ const Navbar = () => {
               <Link to="/" className="nav-link text-black hover:text-black-600 transition-colors py-2 text-lg font-medium w-32 text-center flex items-center justify-center gap-2">
                 <FaHome /> Home
               </Link>
-              <Link to="/about" className="nav-link text-black hover:text-black-600 transition-colors py-2 text-lg font-medium w-32 text-center flex items-center justify-center gap-2">
-                <FaUser /> About
-              </Link>
               <Link to="/projects" className="nav-link text-black hover:text-black-600 transition-colors py-2 text-lg font-medium w-32 text-center flex items-center justify-center gap-2">
-                <FaProjectDiagram /> Projects
+                <FaUser /> Projects
+              </Link>
+              <Link to="/contacts" className="nav-link text-black hover:text-black-600 transition-colors py-2 text-lg font-medium w-32 text-center flex items-center justify-center gap-2">
+                <FaProjectDiagram /> Contacts
               </Link>
             </div>
           </div>
