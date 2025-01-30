@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import aos from 'aos';
 import 'aos/dist/aos.css';
 import MyTeam from '../../assets/images/my_team.png'
+import { FaFacebook, FaInstagram } from 'react-icons/fa'
 
 const Bio = () => {
 
@@ -16,6 +17,7 @@ const Bio = () => {
   return (
     <section>
     <div id="about" className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+     
       <div className="max-w-8xl">
       <h1 className='text-xl md:text-3xl lg:text-4xl text-white text-bold text-center' data-aos="fade-up">LET ME <span className='text-gray-400 text-bold'>INTRODUCE</span> MYSELF</h1>
       </div>
@@ -42,7 +44,23 @@ const Bio = () => {
 
           </article>
         </div>
+
       </div>
+
+      <div className="mt-16 text-center">
+          <h1 className='text-base md:text-lg lg:text-lg text-white text-bold mb-8 hover:scale-110 transition-transform duration-300'>LET'S CONNECT!</h1>
+          <div className="flex justify-center gap-6">
+            <a href="https://www.facebook.com/profile.php?id=100012261910572" target="_blank" rel="noopener noreferrer"
+               className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 hover:scale-110 transition-all duration-300">
+              <FaFacebook className="text-xl text-blue-600" />
+            </a>
+            <a href="http://instagram.com/zeric___/" target="_blank" rel="noopener noreferrer"
+               className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-gray-200 hover:scale-110 transition-all duration-300">
+              <FaInstagram className="text-xl text-pink-600" />
+            </a>
+          </div>
+        </div>
+
     </div>
   </section>
   )

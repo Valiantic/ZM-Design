@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { FaBars, FaTimes, FaHome, FaUser, FaProjectDiagram } from 'react-icons/fa';
+import { FaBars, FaTimes, FaHome, FaUser, FaProjectDiagram} from 'react-icons/fa';
+import { MdPhone } from 'react-icons/md';
 import logo from '../../assets/images/logo.jpeg';
 import { Link } from 'react-router-dom';
 
@@ -28,10 +29,10 @@ const Navbar = () => {
                 <FaHome className="text-xl" /> Home
               </Link>
               <Link to="/about" className="nav-link text-black hover:text-black-600 transition-colors text-lg font-medium flex items-center gap-4">
-                <FaUser className="text-xl" /> About
+                <FaProjectDiagram className="text-xl" /> Projects
               </Link>
               <Link to="/projects" className="nav-link text-black hover:text-black-600 transition-colors text-lg font-medium flex items-center gap-4">
-                <FaProjectDiagram className="text-xl" /> Projects
+                <MdPhone className="text-xl" /> Contacts
               </Link>
             </div>
           </div>

@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <div className="container mx-auto px-8 min-h-screen mt-16 md:mt-24 lg:mt-32">
+      <div className="container mx-auto px-8 mt-16 md:mt-24 lg:mt-32">
 
         <div className="flex flex-col md:flex-row items-center justify-between">
             <Profile />
@@ -25,7 +25,7 @@ const Home = () => {
 
       </div>
 
-      <div className="container mx-auto px-8 min-h-screen mt-8 md:mt-12 lg:mt-16">
+      <div className="container mx-auto px-8 mt-4 md:mt-12 lg:mt-12">
 
         <div className="flex flex-col md:flex-row items-center justify-between">
             <Bio />
