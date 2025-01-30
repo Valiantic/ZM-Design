@@ -16,7 +16,7 @@ const Profile = () => {
         <div className="w-full text-white md:w-1/2 order-1 md:order-none mt-8 md:mt-0 text-center md:text-left">
                   <h1 className='text-2xl sm:text-xl md:text-4xl'>
                     Hi There! <span style={waveAnimation}>👋</span>
-                    <span className="whitespace-nowrap">I'm Zjer Owric Manalo</span>
+                    <span className="whitespace-nowrap">I'm <span className='text-gray-400 text-bold'>Zjer Owric Manalo</span></span>
                   </h1>
                   <TypingText />
                 </div>

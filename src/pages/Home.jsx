@@ -5,6 +5,7 @@ import Navbar from '../components/NavbarBlock/Navbar'
 
 // BLOCKS
 import Profile from '../components/ProfileBlock/Profile'
+import Bio from '../components/BioBlock/Bio'
 
 const waveAnimation = {
   animation: 'wave 2s infinite',
@@ -22,6 +23,14 @@ const Home = () => {
             <Profile />
         </div>
 
+      </div>
+
+      <div className="container mx-auto px-8 min-h-screen mt-8 md:mt-12 lg:mt-16">
+
+        <div className="flex flex-col md:flex-row items-center justify-between">
+            <Bio />
+        </div>
+        
       </div>
 
   
