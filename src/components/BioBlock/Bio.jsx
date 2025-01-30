@@ -1,13 +1,13 @@
 import React from 'react'
 import { useEffect } from 'react';
-import 'aos/dist/aos.css'; // Add the ~ prefix
-import AOS from 'aos';
+import aos from 'aos';
+import 'aos/dist/aos.css';
 import MyTeam from '../../assets/images/my_team.png'
 
 const Bio = () => {
 
  useEffect (() => {
-    AOS.init({
+    aos.init({
       duration: 1000,
       offset: 200,
     });
