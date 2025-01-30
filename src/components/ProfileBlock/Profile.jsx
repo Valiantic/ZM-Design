@@ -1,5 +1,5 @@
 import React from 'react'
-import Avatar from '../../assets/images/me.jpg'
+import Avatar from '../../assets/images/grad_pic.jpeg'
 import BgImage from '../../assets/images/projects/deluxe_living.jpg'
 import TypingText from '../TypingBlock/TypingText'
 

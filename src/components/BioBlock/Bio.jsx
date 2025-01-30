@@ -2,8 +2,8 @@ import React from 'react'
 import { useEffect } from 'react';
 import aos from 'aos';
 import 'aos/dist/aos.css';
-import MyTeam from '../../assets/images/my_team.png'
-import BgImage from '../../assets/images/projects/chandelier.jpg' // Add your background image
+import MyTeam from '../../assets/images/my_team.jpeg'
+import BgImage from '../../assets/images/projects/bedroom.png' // Add your background image
 import { FaFacebook, FaInstagram } from 'react-icons/fa'
 
 const Bio = () => {
@@ -57,7 +57,10 @@ const Bio = () => {
       </div>
 
       <div className="mt-16 text-center">
-          <h1 className='text-xs md:text-xs lg:text-xs text-white mb-8 hover:scale-110 transition-transform duration-300'>LET'S CONNECT!</h1>
+          <p className='text-lg md:text-lg lg:text-lg text-white mb-8 hover:scale-110 transition-transform duration-300'>
+            Let's work together to turn your vision into reality. <br/>
+            <span>Reach out now to start the conversation</span>
+          </p>
           <div className="flex justify-center gap-6">
             <a href="https://www.facebook.com/profile.php?id=100012261910572" target="_blank" rel="noopener noreferrer"
                className="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-amber-200 hover:scale-110 transition-all duration-300">

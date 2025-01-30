@@ -12,7 +12,7 @@ const Contacts = () => {
 
     </div>
     </main>
-    <Footer />
+   
   </div>
   )
 }
