@@ -19,7 +19,7 @@ const Home = () => {
     <div className="flex flex-col min-h-screen">
       <Navbar />
       <main className="flex-grow">
-        <div className="container mx-auto px-8 mt-16 md:mt-24 lg:mt-32">
+        <div className="container mx-auto px-8 mt-17 md:mt-17 lg:mt-18">
 
           <div className="flex flex-col md:flex-row items-center justify-between">
               <Profile />
