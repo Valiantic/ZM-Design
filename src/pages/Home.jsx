@@ -2,6 +2,7 @@ import { useState } from 'react'
 import '../index.css'
 import React from 'react'
 import Navbar from '../components/NavbarBlock/Navbar'
+import Footer from '../components/FooterBlock/Footer'
 
 // BLOCKS
 import Profile from '../components/ProfileBlock/Profile'
@@ -15,25 +16,26 @@ const waveAnimation = {
 
 const Home = () => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="container mx-auto px-8 mt-16 md:mt-24 lg:mt-32">
+      <main className="flex-grow">
+        <div className="container mx-auto px-8 mt-16 md:mt-24 lg:mt-32">
 
-        <div className="flex flex-col md:flex-row items-center justify-between">
-            <Profile />
+          <div className="flex flex-col md:flex-row items-center justify-between">
+              <Profile />
+          </div>
+
         </div>
 
-      </div>
+        <div className="container mx-auto px-8 mt-4 md:mt-12 lg:mt-12">
 
-      <div className="container mx-auto px-8 mt-4 md:mt-12 lg:mt-12">
-
-        <div className="flex flex-col md:flex-row items-center justify-between">
-            <Bio />
+          <div className="flex flex-col md:flex-row items-center justify-between">
+              <Bio />
+          </div>
+          
         </div>
-        
-      </div>
-
-  
+      </main>
+      <Footer />
     </div>
   )
 }
