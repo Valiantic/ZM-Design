@@ -3,6 +3,7 @@ import '../index.css'
 import React from 'react'
 import Navbar from '../components/NavbarBlock/Navbar'
 import Avatar from '../assets/images/me.jpg'
+import TypingText from '../components/TypingBlock/TypingText'
 
 const waveAnimation = {
   animation: 'wave 2s infinite',
@@ -18,11 +19,12 @@ const Home = () => {
         <div className="flex flex-col md:flex-row items-center justify-between">
             
           {/* Text Content - Left Side */}
-          <div className="w-full text-white md:w-1/2 order-1 md:order-none">
+          <div className="w-full text-white md:w-1/2 order-1 md:order-none mt-8 md:mt-0">
             <h1 className='text-2xl sm:text-xl md:text-4xl'>
               Hi There! <span style={waveAnimation}>👋</span>
               <span className="whitespace-nowrap">I'm Zjer Owric Manalo</span>
             </h1>
+            <TypingText />
           </div>
 
           {/* Avatar - Right Side */}
