@@ -19,7 +19,7 @@ const Home = () => {
             
           {/* Text Content - Left Side */}
           <div className="w-full text-white md:w-1/2 order-1 md:order-none">
-            <h1 className='text-2xl sm:text-3xl md:text-4xl'>
+            <h1 className='text-2xl sm:text-xl md:text-4xl'>
               Hi There! <span style={waveAnimation}>👋</span>
               <span className="whitespace-nowrap">I'm Zjer Owric Manalo</span>
             </h1>
