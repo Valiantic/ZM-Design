@@ -17,7 +17,7 @@ const Bio = () => {
 
   return (
     <section 
-      className="relative w-full min-h-[500px] rounded-2xl overflow-hidden mb-16"
+      className="relative w-full min-h-[500px] rounded-2xl overflow-hidden mb-16 mx-auto"
       style={{
         backgroundImage: `url(${BgImage})`,
         backgroundSize: 'cover',
@@ -25,7 +25,7 @@ const Bio = () => {
       }}
     >
       <div className="absolute inset-0 bg-black/70"></div>
-      <div id="about" className="relative z-10 w-full h-full px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <div id="about" className="relative z-10 w-full h-full px-4 py-8 sm:px-6 sm:py-24 lg:px-8">
      
       <div className="max-w-8xl">
       <h1 className='text-xl md:text-3xl lg:text-4xl text-white text-bold text-center' data-aos="fade-up">LET ME <span className='text-amber-200 text-bold'>INTRODUCE</span> MYSELF</h1>

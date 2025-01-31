@@ -24,9 +24,9 @@ const Profile = () => {
       />
 
       {/* Content */}
-      <div className="relative z-10 w-full h-full flex flex-col md:flex-row items-center justify-between p-8">
+      <div className="relative z-10 w-full h-full flex flex-col md:flex-row items-center justify-between p-4 sm:p-8">
         {/* Text Content - Left Side */}
-        <div className="w-full text-white md:w-1/2 order-1 md:order-none mt-8 md:mt-0 text-center md:text-left">
+        <div className="w-full text-white md:w-1/2 order-1 md:order-none mt-8 md:mt-0 text-center md:text-left px-2">
           <h1 className='text-2xl sm:text-xl md:text-4xl'>
             Hi There! 
             {/* ANIMATION HAND REMOVED */}
