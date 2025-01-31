@@ -17,7 +17,7 @@ const Bio = () => {
 
   return (
     <section 
-      className="relative w-full min-h-[500px] rounded-2xl overflow-hidden mb-16 mx-auto"
+      className="relative w-full min-h-[500px] rounded-2xl overflow-hidden mb-16"
       style={{
         backgroundImage: `url(${BgImage})`,
         backgroundSize: 'cover',

@@ -14,7 +14,7 @@ const Profile = () => {
     <div className="relative w-full min-h-[500px] rounded-2xl overflow-hidden">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 bg-center bg-cover"
         style={{
           backgroundImage: `url(${BgImage})`,
           backgroundSize: 'cover',
