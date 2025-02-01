@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import aos from 'aos';
 import 'aos/dist/aos.css';
 import ServicesBg from '../../assets/images/projects/services_bg.png';
+import ImageCarousel from './ImageCarousel';
 
 const Projectheading = () => {
 

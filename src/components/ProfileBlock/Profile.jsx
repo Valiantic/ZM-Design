@@ -46,7 +46,7 @@ const Profile = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      {/* <style jsx>{`
         @keyframes wave {
           0% { transform: rotate(0deg); }
           10% { transform: rotate(14deg); }
@@ -57,7 +57,8 @@ const Profile = () => {
           60% { transform: rotate(0deg); }
           100% { transform: rotate(0deg); }
         }
-      `}</style>
+      `}</style> */}
+      
     </div>
   )
 }
