@@ -2,8 +2,8 @@ import '../index.css'
 import React from 'react'
 import Navbar from '../components/NavbarBlock/Navbar'
 import Footer from '../components/FooterBlock/Footer'
-import Projectheading from '../components/ProjectBlock/Projectheading'
 import ImageCarousel from '../components/ProjectBlock/ImageCarousel'
+import Services from '../components/ProjectBlock/Services'
 
 const Projects = () => {
   return (
@@ -11,10 +11,10 @@ const Projects = () => {
     <Navbar />
     <main className="flex-grow">
     <ImageCarousel />
-    <Projectheading />
         
     </main>
-   
+    <Services />
+    <Footer />
   </div>
   )
 }
