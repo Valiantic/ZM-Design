@@ -67,60 +67,72 @@ const ContactForm = () => {
             </h1>
 
             <div className="mt-8">
-              <p  className="text-xl text-white flex items-center gap-2">  <FaEnvelope className="w-4 h-4 text-amber-300" /><span>zjerowricm@gmail.com</span> </p>
-              <p  className="text-xl text-white flex items-center gap-2">  <FaPhone className="w-4 h-4 text-amber-300" /><span>09452756283</span> </p>
+              <p  className="text-xl text-white flex items-center gap-2">  <FaEnvelope className="w-4 h-4 text-amber-200" /><span>zjerowricm@gmail.com</span> </p>
+              <p  className="text-xl text-white flex items-center gap-2">  <FaPhone className="w-4 h-4 text-amber-200" /><span>09452756283</span> </p>
             </div>
           </div>
 
           <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-            <form action="#" className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
                 <label className="sr-only" htmlFor="name">Name</label>
                 <input
-                  className="w-full rounded-lg border border-gray-400 p-3 text-sm"
+                  className={`w-full rounded-lg border ${errors.name ? 'border-red-500' : 'border-gray-400'} p-3 text-sm font-bold`}
                   placeholder="Name"
                   type="text"
                   id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                 />
+                {errors.name && <p className="text-red-500 text-xs mt-1">Name is required</p>}
               </div>
 
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
                   <label className="sr-only" htmlFor="email">Email</label>
                   <input
-                    className="w-full rounded-lg border border-gray-400 p-3 text-sm"
+                    className={`w-full rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-400'} p-3 text-sm font-bold`}
                     placeholder="Email address"
                     type="email"
                     id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
                   />
+                  {errors.email && <p className="text-red-500 text-xs mt-1">Email is required</p>}
                 </div>
 
                 <div>
                   <label className="sr-only" htmlFor="subject">Subject</label>
                   <input
-                    className="w-full rounded-lg border border-gray-400 p-3 text-sm"
+                    className={`w-full rounded-lg border ${errors.subject ? 'border-red-500' : 'border-gray-400'} p-3 text-sm font-bold`}
                     placeholder="Subject"
                     type="text"
                     id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
                   />
+                  {errors.subject && <p className="text-red-500 text-xs mt-1">Subject is required</p>}
                 </div>
-
-                
               </div>
 
-            
               <div>
                 <label className="sr-only" htmlFor="message">Message</label>
-
                 <textarea
-                  className="w-full rounded-lg border border-gray-400 p-3 text-sm resize-none"
+                  className={`w-full rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-400'} p-3 text-sm resize-none font-bold`}
                   placeholder="Message"
                   rows="8"
                   id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                 ></textarea>
+                {errors.message && <p className="text-red-500 text-xs mt-1">Message is required</p>}
               </div>
 
-              <div className="mt-4 text-black">
+              <div className="mt-4">
                 <button
                   type="submit"
                   className="inline-block w-full rounded-lg border-[2px] border-solid border-black px-5 py-3 font-medium text-black sm:w-auto hover:bg-gray-100"
