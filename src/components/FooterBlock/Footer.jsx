@@ -3,8 +3,8 @@ import { FaEnvelope, FaPhone } from 'react-icons/fa'
 
 const Footer = () => {
   return (
-    <footer className="bg-white font-poppins shadow-lg">
-      <div className="max-w-screen-xl px-4 py-6 mx-auto sm:px-6 lg:px-8">
+    <footer className="bg-white font-poppins shadow-lg w-full">
+      <div className="px-8 py-6 sm:px-12 lg:px-16 xl:px-24 2xl:px-32 w-full">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
 
           {/* Email - Left */}

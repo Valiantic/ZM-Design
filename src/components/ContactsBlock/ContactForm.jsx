@@ -55,11 +55,11 @@ const ContactForm = () => {
   };
 
   return (
-    <section 
-      className="bg-gray-100 rounded-lg mt-10 bg-cover bg-center bg-no-repeat"
+    <section
+      className="bg-gray-100 bg-cover bg-center bg-no-repeat w-full"
       style={{ backgroundImage: `url(${AestheticKitchen})` }}
     >
-      <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+      <div className="px-8 py-16 sm:px-12 lg:px-16 xl:px-24 2xl:px-32 w-full">
         <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
           <div className="lg:col-span-2 lg:py-12">
             <h1 className="max-w-lg text-lg text-white font-bold">
@@ -75,9 +75,9 @@ const ContactForm = () => {
           <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="sr-only" htmlFor="name">Name</label>
+                <label className="sr-only text-black" htmlFor="name">Name</label>
                 <input
-                  className={`w-full rounded-lg border ${errors.name ? 'border-red-500' : 'border-gray-400'} p-3 text-sm font-bold`}
+                  className={`w-full rounded-lg border ${errors.name ? 'border-red-500' : 'border-gray-400'} p-3 text-sm text-black font-bold`}
                   placeholder="Name"
                   type="text"
                   id="name"
@@ -92,7 +92,7 @@ const ContactForm = () => {
                 <div>
                   <label className="sr-only" htmlFor="email">Email</label>
                   <input
-                    className={`w-full rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-400'} p-3 text-sm font-bold`}
+                    className={`w-full rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-400'} p-3 text-sm text-black font-bold`}
                     placeholder="Email address"
                     type="email"
                     id="email"
@@ -106,7 +106,7 @@ const ContactForm = () => {
                 <div>
                   <label className="sr-only" htmlFor="subject">Subject</label>
                   <input
-                    className={`w-full rounded-lg border ${errors.subject ? 'border-red-500' : 'border-gray-400'} p-3 text-sm font-bold`}
+                    className={`w-full rounded-lg border ${errors.subject ? 'border-red-500' : 'border-gray-400'} p-3 text-sm text-black font-bold`}
                     placeholder="Subject"
                     type="text"
                     id="subject"
@@ -121,7 +121,7 @@ const ContactForm = () => {
               <div>
                 <label className="sr-only" htmlFor="message">Message</label>
                 <textarea
-                  className={`w-full rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-400'} p-3 text-sm resize-none font-bold`}
+                  className={`w-full rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-400'} p-3 text-sm resize-none text-black font-bold`}
                   placeholder="Message"
                   rows="8"
                   id="message"
@@ -135,7 +135,7 @@ const ContactForm = () => {
               <div className="mt-4">
                 <button
                   type="submit"
-                  className="inline-block w-full rounded-lg border-[2px] border-solid border-black px-5 py-3 font-medium text-black sm:w-auto hover:bg-gray-100"
+                  className="inline-block w-full rounded-lg border-[2px] border-solid border-black px-5 py-3 font-medium text-white sm:w-auto hover:bg-gray-100"
                 >
                   Send Message
                 </button>

@@ -1,180 +1,152 @@
-import React, { useState } from 'react';
-
-// IMAGES
-import SunlightLounge from '../../assets/images/projects/sunlight_lounge.png';
-import NaturalisticLiving from '../../assets/images/projects/naturalistic_living.jpg';
-import FlatRoof from '../../assets/images/projects/flat_roof.jpg';
-import NaturaliscDining from '../../assets/images/projects/naturalistic_dining.png';
-import FloralLiving from '../../assets/images/projects/floral_living.png';
-import WarmFlat from '../../assets/images/projects/warm_flat.png';
-import ShadyFlat from '../../assets/images/projects/shady_flat.png';
-import NaturalisticFlat from '../../assets/images/projects/naturalistic_flat.png';
-
-import AestheticKitchem from '../../assets/images/projects/aesthetic_kitchen.png';
-import CoolDinning from '../../assets/images/projects/cool_dinning.png';
-import CoolKitchen from '../../assets/images/projects/cool_kitchen.png';
-import DinningRoom from '../../assets/images/projects/dinning_room.png';
-import FloralComplex from '../../assets/images/projects/floral_complex.png';
-import FreshDining from '../../assets/images/projects/fresh_dining.png';
-import FreshKitchen from '../../assets/images/projects/fresh_kitchen.png';
-import LivingRoom from '../../assets/images/projects/living_room.png';
-import MarbleKitchen from '../../assets/images/projects/marble_kitchen.png';
-import OutlanderFlat from '../../assets/images/projects/outlander_flat.png';
-import RestRoom from '../../assets/images/projects/restroom.png';
-import WarmLiving from '../../assets/images/projects/warm_living.png';
-import WhiteDining from '../../assets/images/projects/white_dining.png';
-import WhiteFridge from '../../assets/images/projects/white_fridge.png';
-import CozyLiving from '../../assets/images/projects/cozy_living.png';
-
+import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+// Load all images from the projects folder using Vite's glob (eager)
+const modules = import.meta.glob('../../assets/images/projects/*.{png,jpg,jpeg}', { eager: true });
+const IMAGES = Object.keys(modules)
+  .map((path) => {
+    const fileName = path.split('/').pop();
+    return { url: modules[path].default, alt: fileName };
+  })
+  .sort((a, b) => a.alt.localeCompare(b.alt));
+
+// Helper: chunk array into groups of `size`
+const chunk = (arr, size) => {
+  const chunks = [];
+  for (let i = 0; i < arr.length; i += size) chunks.push(arr.slice(i, i + size));
+  return chunks;
+};
+
 const ImageCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [slideIndex, setSlideIndex] = useState(0);
 
-  const images = [
-    {
-      url: SunlightLounge,
-      alt: 'Project Highlight'
-    },
-    {
-      url: NaturalisticLiving,
-      alt: 'Project Highlight'
-    },
-    {
-      url: FlatRoof,
-      alt: 'Project Highlight'
-    },
-    {
-      url: NaturaliscDining,
-      alt: 'Project Highlight'
-    },
-    {
-      url: FloralLiving,
-      alt: 'Project Highlight'
-    },
-    {
-      url: ShadyFlat,
-      alt: 'Project Highlight'
-    },
-    {
-      url: NaturalisticFlat,
-      alt: 'Project Highlight'
-    },
-    {
-      url: WarmFlat,
-      alt: 'Project Highlight'
-    },
-    {
-      url: AestheticKitchem,
-      alt: 'Project Highlight'
-    },
-    {
-      url: CoolDinning,
-      alt: 'Project Highlight'
-    },
-    {
-      url: CoolKitchen,
-      alt: 'Project Highlight'
-    },
-    {
-      url: DinningRoom,
-      alt: 'Project Highlight'
-    },
-    {
-      url: FloralComplex,
-      alt: 'Project Highlight'
-    },
-    {
-      url: FreshDining,
-      alt: 'Project Highlight'
-    },
-    {
-      url: FreshKitchen,
-      alt: 'Project Highlight'
-    },
-    {
-      url: LivingRoom,
-      alt: 'Project Highlight'
-    },
-    {
-      url: MarbleKitchen,
-      alt: 'Project Highlight'
-    },
-    {
-      url: OutlanderFlat,
-      alt: 'Project Highlight'
-    },
-    {
-      url: RestRoom,
-      alt: 'Project Highlight'
-    },
-    {
-      url: WarmLiving,
-      alt: 'Project Highlight'
-    },
-    {
-      url: WhiteDining,
-      alt: 'Project Highlight'
-    },
-    {
-      url: WhiteFridge,
-      alt: 'Project Highlight'
-    },
-    {
-      url: CozyLiving,
-      alt: 'Project Highlight'
-    }
-  ];
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+  const images = IMAGES;
+  if (!images || images.length === 0) {
+    return (
+      <div className="w-full bg-black mt-20">
+        <h2 className="text-3xl text-center font-semibold text-white px-8 py-6">
+          No projects found
+        </h2>
+      </div>
     );
-  };
+  }
 
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
-    );
-  };
+  // Show 4 images per slide for a cleaner grid
+  const perSlide = 4;
+  const slides = chunk(images, perSlide);
+  const totalSlides = slides.length;
+
+  // Track mobile viewport to adjust UI (dots and chevron sizes)
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mm = window.matchMedia('(max-width: 640px)');
+    const update = () => setIsMobile(mm.matches);
+    update();
+    mm.addEventListener?.('change', update);
+    return () => mm.removeEventListener?.('change', update);
+  }, []);
+
+  const nextSlide = () => setSlideIndex((s) => (s + 1) % totalSlides);
+  const prevSlide = () => setSlideIndex((s) => (s - 1 + totalSlides) % totalSlides);
+
+  // Column spans for desktop layout (grid of 4 cols)
+  // Use equal spans for 4 images so the grid aligns cleanly
+  const mdSpanClasses = ['md:col-span-1', 'md:col-span-1', 'md:col-span-1', 'md:col-span-1'];
 
   return (
     <div className="w-full bg-black mt-20">
       {/* Title */}
-      <h2 
+      <h2
         className="text-5xl text-center font-semibold text-white px-8 py-6 font-['Poppins']"
         data-aos="fade-up"
         data-aos-duration="1000"
       >
-        My <span className='text-amber-200 text-bold font-bold'>Projects</span>
+        My <span className="text-amber-200 text-bold font-bold">Projects</span>
       </h2>
 
       {/* Main Image Container */}
       <div className="relative w-full">
-        <div className="aspect-[16/9] w-full">
-          <img
-            src={images[currentIndex].url}
-            alt={images[currentIndex].alt}
-            className="w-full h-full object-cover"
-          />
-          
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 p-1 sm:p-2 rounded-full transition-colors text-black"
-            aria-label="Previous slide"
-          >
-            <ChevronLeft className="w-6 h-6 sm:w-8 sm:h-8" />
-          </button>
-          
-          <button
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 p-1 sm:p-2 rounded-full transition-colors text-black"
-            aria-label="Next slide"
-          >
-            <ChevronRight className="w-6 h-6 sm:w-8 sm:h-8" />
-          </button>
+        {/* Slide container */}
+        <div className="w-full">
+          {slides.map((slideImages, idx) => (
+            <div
+              key={idx}
+              className={`${idx === slideIndex ? 'block' : 'hidden'} w-full px-2`}
+            >
+              {/* Responsive grid: constrain height on small screens so gallery isn't too tall */}
+              <div className="max-h-48 sm:max-h-64 md:max-h-none overflow-hidden">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2">
+                {slideImages.map((img, i) => (
+                  <div
+                    key={img.alt + i}
+                    className={`overflow-hidden rounded-md bg-gray-800 ${mdSpanClasses[i] ?? 'md:col-span-1'}`}
+                  >
+                    <img
+                      src={img.url}
+                      alt={img.alt}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+                {/* If slide has fewer than `perSlide` images, fill empty cells for consistent layout */}
+                {Array.from({ length: perSlide - slideImages.length }).map((_, k) => (
+                  <div key={`empty-${k}`} className="hidden md:block" />
+                ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className={`absolute left-3 top-1/2 -translate-y-1/2 ${isMobile ? 'p-1' : 'p-2'} rounded-full transition-colors hover:bg-gray-100`}
+          style={{ backgroundColor: 'white' }}
+          aria-label="Previous slide"
+        >
+          <ChevronLeft className={isMobile ? 'w-4 h-4' : 'w-5 sm:w-6'} style={{ color: 'black' }} />
+        </button>
+
+        <button
+          onClick={nextSlide}
+          className={`absolute right-3 top-1/2 -translate-y-1/2 ${isMobile ? 'p-1' : 'p-2'} rounded-full transition-colors hover:bg-gray-100`}
+          style={{ backgroundColor: 'white' }}
+          aria-label="Next slide"
+        >
+          <ChevronRight className={isMobile ? 'w-4 h-4' : 'w-5 sm:w-6'} style={{ color: 'black' }} />
+        </button>
+
+      </div>
+
+      {/* Dots — centered, white; show up to 5 dots on mobile */}
+      <div className="flex justify-center items-center mt-6 gap-3">
+        {
+          (() => {
+            const visibleCount = isMobile ? Math.min(5, totalSlides) : totalSlides;
+            let start = Math.max(0, slideIndex - Math.floor(visibleCount / 2));
+            if (start + visibleCount > totalSlides) start = Math.max(0, totalSlides - visibleCount);
+            const dots = [];
+            for (let j = 0; j < visibleCount; j++) {
+              const idx = start + j;
+              const isActive = idx === slideIndex;
+              const inlineStyle = {
+                backgroundColor: isActive ? '#ffffff' : 'rgba(255,255,255,0.85)',
+                border: isActive ? '2px solid #000000' : '1px solid rgba(255,255,255,0.3)'
+              };
+              dots.push(
+                <button
+                  key={`dot-${idx}`}
+                  onClick={() => setSlideIndex(idx)}
+                  style={inlineStyle}
+                  className="w-4 h-4 sm:w-5 sm:h-5 rounded-full appearance-none outline-none"
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              );
+            }
+            return dots;
+          })()
+        }
       </div>
     </div>
   );

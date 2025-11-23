@@ -10,13 +10,13 @@ import Contacts from './pages/Contacts';
 function App() {
   return (
     <Router>
-      {/* Include Navbar here if you want it on all pages */}
-      <Navbar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/projects' element={<Projects />} />
-        <Route path='/contacts' element={<Contacts />} />
-      </Routes>
+      <div className="w-full min-h-screen">
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/projects' element={<Projects />} />
+          <Route path='/contacts' element={<Contacts />} />
+        </Routes>
+      </div>
     </Router>
   );
 }

@@ -6,13 +6,14 @@ import ContactForm from '../components/ContactsBlock/ContactForm'
 
 const Contacts = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen w-full">
       <Navbar />
-      <main className="flex-grow mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+      <main className="flex-grow w-full pt-16">
         {/* Render ContactForm here */}
         <ContactForm />
+          <Footer /> {/* Add Footer component */}
       </main>
-      <Footer /> {/* Add Footer component */}
+    
     </div>
   )
 }

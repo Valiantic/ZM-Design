@@ -48,7 +48,7 @@ const Bio = () => {
             </p>
 
             <p className='text-white'>
-            I'm <span className='text-amber-200 text-bold'>Zjer Owric Manalo</span>, a passionate 3rd-year Civil Engineering student at Rizal Technological University and a skilled freelance <span className='text-amber-200 text-bold'>CAD operator</span> and <span className='text-amber-200 text-bold'>Interior designer</span> with one year of hands-on experience in the construction industry.
+            I'm <span className='text-amber-200 text-bold'>Zjer Owric Manalo</span>, a passionate 4th-year Civil Engineering student at Rizal Technological University and a skilled freelance <span className='text-amber-200 text-bold'>CAD operator</span> and <span className='text-amber-200 text-bold'>Interior designer</span> with one year of hands-on experience in the construction industry.
             </p>
 
           </article>
