@@ -19,6 +19,7 @@ const chunk = (arr, size) => {
 
 const ImageCarousel = () => {
   const [slideIndex, setSlideIndex] = useState(0);
+  const [loadedImages, setLoadedImages] = useState(new Set());
 
   const images = IMAGES;
   if (!images || images.length === 0) {
@@ -30,6 +31,10 @@ const ImageCarousel = () => {
       </div>
     );
   }
+
+  const handleImageLoad = (imageUrl) => {
+    setLoadedImages((prev) => new Set([...prev, imageUrl]));
+  };
 
   // Show 4 images per slide for a cleaner grid
   const perSlide = 4;
@@ -73,18 +78,26 @@ const ImageCarousel = () => {
               key={idx}
               className={`${idx === slideIndex ? 'block' : 'hidden'} w-full px-2`}
             >
-              {/* Responsive grid: constrain height on small screens so gallery isn't too tall */}
-              <div className="max-h-48 sm:max-h-64 md:max-h-none overflow-hidden">
+              {/* Responsive grid */}
+              <div>
                 <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2">
                 {slideImages.map((img, i) => (
                   <div
                     key={img.alt + i}
-                    className={`overflow-hidden rounded-md bg-gray-800 ${mdSpanClasses[i] ?? 'md:col-span-1'}`}
+                    className={`relative overflow-hidden rounded-md bg-gray-800 aspect-[4/3] ${mdSpanClasses[i] ?? 'md:col-span-1'}`}
                   >
+                    {/* Loading skeleton */}
+                    {!loadedImages.has(img.url) && (
+                      <div className="absolute inset-0 bg-gray-700 animate-pulse" />
+                    )}
                     <img
                       src={img.url}
                       alt={img.alt}
-                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      onLoad={() => handleImageLoad(img.url)}
+                      className={`w-full h-full object-contain transition-opacity duration-300 ${
+                        loadedImages.has(img.url) ? 'opacity-100' : 'opacity-0'
+                      }`}
                     />
                   </div>
                 ))}
@@ -120,7 +133,7 @@ const ImageCarousel = () => {
       </div>
 
       {/* Dots — centered, white; show up to 5 dots on mobile */}
-      <div className="flex justify-center items-center mt-6 gap-3">
+      <div className="flex justify-center items-center mt-6 gap-2 pb-6">
         {
           (() => {
             const visibleCount = isMobile ? Math.min(5, totalSlides) : totalSlides;
@@ -131,15 +144,15 @@ const ImageCarousel = () => {
               const idx = start + j;
               const isActive = idx === slideIndex;
               const inlineStyle = {
-                backgroundColor: isActive ? '#ffffff' : 'rgba(255,255,255,0.85)',
-                border: isActive ? '2px solid #000000' : '1px solid rgba(255,255,255,0.3)'
+                backgroundColor: isActive ? '#ffffff' : 'rgba(255,255,255,0.5)',
+                border: isActive ? '1px solid #ffffff' : 'none'
               };
               dots.push(
                 <button
                   key={`dot-${idx}`}
                   onClick={() => setSlideIndex(idx)}
                   style={inlineStyle}
-                  className="w-4 h-4 sm:w-5 sm:h-5 rounded-full appearance-none outline-none"
+                  className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full appearance-none outline-none transition-all"
                   aria-label={`Go to slide ${idx + 1}`}
                 />
               );

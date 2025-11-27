@@ -41,7 +41,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={toggleMenu}
-              className="text-white hover:text-gray-200 focus:outline-none"
+              className="text-black hover:text-gray-200 focus:outline-none"
             >
               {isOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </button>
